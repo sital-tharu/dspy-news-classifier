@@ -27,6 +27,12 @@ def get_dataset():
         dspy.Example(headline="Tesla autopilot software gets major safety update", category="tech"),
         dspy.Example(headline="Meta introduces new augmented reality glasses", category="tech"),
         dspy.Example(headline="Microsoft integrates AI copilot across all Office apps", category="tech"),
+
+        # --- AMBIGUOUS (harder cases) ---
+        dspy.Example(headline="Elon Musk tweets about government AI regulation", category="politics"),
+        dspy.Example(headline="Tesla CEO appears before Senate committee on autopilot", category="politics"),
+        dspy.Example(headline="Olympic athletes use AI training tools to break records", category="sports"), 
+
     ]
 
     # Tell DSPy: "headline is the input, category is the label"

@@ -33,4 +33,4 @@ print(f"Reason   : {result.reason}\n")
 # ── Evaluate on devset ─────────────────────────────────────────────
 print("── Baseline Evaluation ──")
 baseline_score = evaluate_pipeline(pipeline, devset)
-print(f"\n✅ Baseline Accuracy: {baseline_score:.1f}%")
+print(f"\n✅ Baseline Accuracy: {baseline_score}")
