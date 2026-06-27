@@ -14,7 +14,7 @@ dspy.configure(lm=lm)
 # print(f"Category : {result.category}")
 # print(f"Reason   : {result.reason}")
 
-# trainset, devset = get_dataset()
+trainset, devset = get_dataset()
 # print(f"Trainset size : {len(trainset)}")
 # print(f"Devset size   : {len(devset)}")
 # print(f"\nSample example:")
