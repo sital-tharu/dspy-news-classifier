@@ -57,8 +57,31 @@ optimized_score = evaluate_pipeline(optimized_pipeline, devset)
 print(f"✅ Optimized Accuracy: {optimized_score.score:.1f}%")
 
 # ── Compare ────────────────────────────────────────────────────────
+# After optimize_pipeline()
 print("\n── Few-shot demos selected by optimizer ──")
-for i, demo in enumerate(optimized_pipeline.classify.demos):
-    print(f"\nDemo {i+1}:")
-    print(f"  Headline : {demo.headline}")
-    print(f"  Category : {demo.category}")
+try:
+    # DSPy stores demos in the predictor
+    predictor = optimized_pipeline.classify.predict
+    demos = predictor.demos
+    
+    if not demos:
+        print("No demos found — optimizer used labeled examples only")
+    else:
+        for i, demo in enumerate(demos):
+            print(f"\nDemo {i+1}:")
+            print(f"  Headline : {demo.headline}")
+            print(f"  Category : {demo.category}")
+            if hasattr(demo, 'reasoning'):
+                print(f"  Reasoning: {demo.reasoning[:80]}...")
+except Exception as e:
+    # Fallback — inspect the full pipeline structure
+    print("\nInspecting pipeline structure...")
+    print(optimized_pipeline.classify)
+    print("\nNamed predictors:")
+    for name, predictor in optimized_pipeline.named_predictors():
+        print(f"  {name}: {predictor}")
+        if hasattr(predictor, 'demos'):
+            for i, demo in enumerate(predictor.demos):
+                print(f"\n  Demo {i+1}:")
+                print(f"    Headline : {demo.get('headline', 'N/A')}")
+                print(f"    Category : {demo.get('category', 'N/A')}")
