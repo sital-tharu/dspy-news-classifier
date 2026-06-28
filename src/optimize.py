@@ -14,8 +14,8 @@ def optimize_pipeline(trainset):
 
     optimizer = BootstrapFewShot(
         metric=classification_metric,
-        max_bootstrapped_demos=3,
-        max_labeled_demos=6,
+        max_bootstrapped_demos=6,   # 2 per category
+        max_labeled_demos=6,        # 2 per category
         max_rounds=2,
     )
 
