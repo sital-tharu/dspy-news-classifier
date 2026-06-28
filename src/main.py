@@ -5,7 +5,7 @@ from src.evaluation import evaluate_pipeline
 from src.optimize import optimize_pipeline
 
 # Configure Ollama
-lm = dspy.LM("ollama/llama3.2", api_base="http://localhost:11434")
+lm = dspy.LM("ollama/llama3", api_base="http://localhost:11434")
 dspy.configure(lm=lm)
 
 # # Run a quick test
