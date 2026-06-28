@@ -13,10 +13,10 @@ def optimize_pipeline(trainset):
     """
 
     optimizer = BootstrapFewShot(
-        metric=classification_metric,   # how to judge correctness
-        max_bootstrapped_demos=4,       # max few-shot examples to add
-        max_labeled_demos=4,            # max labeled examples to use
-        max_rounds=1,                   # how many optimization rounds
+        metric=classification_metric,
+        max_bootstrapped_demos=3,
+        max_labeled_demos=6,
+        max_rounds=2,
     )
 
     print("🔄 Optimizing pipeline with BootstrapFewShot...")
