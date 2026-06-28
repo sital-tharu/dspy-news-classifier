@@ -36,7 +36,7 @@ src/
 ## Quickstart
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/dspy-news-classifier
+git clone https://github.com/sital-tharu/dspy-news-classifier
 cd dspy-news-classifier
 
 # 2. Install dependencies
