@@ -57,8 +57,8 @@ optimized_score = evaluate_pipeline(optimized_pipeline, devset)
 print(f"✅ Optimized Accuracy: {optimized_score.score:.1f}%")
 
 # ── Compare ────────────────────────────────────────────────────────
-print("\n── Results Comparison ──")
-print(f"  Before optimization : {baseline_score.score:.1f}%")
-print(f"  After optimization  : {optimized_score.score:.1f}%")
-improvement = optimized_score.score - baseline_score.score
-print(f"  Improvement         : +{improvement:.1f}%")
+print("\n── Few-shot demos selected by optimizer ──")
+for i, demo in enumerate(optimized_pipeline.classify.demos):
+    print(f"\nDemo {i+1}:")
+    print(f"  Headline : {demo.headline}")
+    print(f"  Category : {demo.category}")
